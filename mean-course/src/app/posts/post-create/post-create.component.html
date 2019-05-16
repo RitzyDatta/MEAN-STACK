@@ -1,0 +1,42 @@
+
+<mat-card> <!-- angular material theme,  is a content container for text, photos, and actions in the context of a single subject-->
+  <form (submit)="onAddpost(postForm)"#postForm="ngForm"> <!--submit will trigger an special event which is "submit"
+                                                    ngForm is a template variable for the form.
+                                                    The variable postForm is now a reference to the NgForm directive that governs the form as a whole.-->
+    <mat-form-field>
+      <input matInput type="text" name="title" ngModel required minlength="3" placeholder="Post Title"
+      #title="ngModel">
+     <!-- <mat-error *ngIf="postForm.getControl('title').invalid">{{getErrorMessage()}}</mat-error> -->
+     <mat-error *ngIf="title.invalid">Please Enter a post title</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea roes="6" matInput name="content" ngModel required placeholder="Post Content"
+      #content="ngModel"> </textarea> <!--ngModel is used for databinding -->
+      <mat-error *ngIf="content.invalid">Please Enter a post content</mat-error>
+    </mat-form-field> <br/>
+    <button mat-raised-button color="accent" type="submit">Save</button>  <!--submit is default html behavior-->
+</form>
+</mat-card>
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+<!--
+<mat-card> <!-- angular material theme,  is a content container for text, photos, and actions in the context of a single subject-->
+  <!--
+  <mat-form-field>
+    <input matInput type="text" [(ngModel)]="enteredTitle">
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea roes="6" matInput [(ngModel)]="enteredContent"> </textarea> <!--ngModel is used for databinding -->
+    <!--
+  </mat-form-field> <br/>
+  <button mat-raised-button color="accent" (click)="onAddpost()">Save</button>
+</mat-card>
+
+-->
+
+
+
